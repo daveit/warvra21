@@ -27,14 +27,14 @@ gem 'rails_db'
 gem "pundit"
 gem 'rails_12factor'
 gem "puma"
+gem 'pg', '1.2.3'
 #gem 'sqlite3'
 # Use sqlite3 as the database for Active Record
 #gem "rack", ">= 2.1.4"
 #gem "nokogiri" "1.12.3"
 
-group :production do 
-  gem 'pg', '1.2.3'
-end
+#group :production do 
+#end
 
 group :development do
   gem 'sqlite3', '~> 1.3.6'
