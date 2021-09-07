@@ -30,11 +30,15 @@ gem 'rails_12factor'
 gem "puma"
 #gem 'sqlite3'
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.3.6'
 #gem "rack", ">= 2.1.4"
 #gem "nokogiri" "1.12.3"
 
+group :production do 
+  gem 'pg'
+end
+
 group :development do
+  gem 'sqlite3', '~> 1.3.6'
   gem 'better_errors'
   gem 'quiet_assets'
   gem 'rails_layout'
