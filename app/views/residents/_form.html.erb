@@ -7,10 +7,11 @@
 
   <div class="row">
     <div class="form-inputs col-xs-8">
-      <%= f.association :village %>
+      <%= f.association :village, collection: Village.order(:name) %>
     </div>
   </div>
-  
+
+
   <div class="row">
           <div class="form-inputs col-xs-6">
             <%= f.input :surname %>
@@ -31,16 +32,17 @@
     </div>
 
     <div class="row">
-      <div class="form-inputs col-xs-6">
-        <%= f.input :address %>
-      </div>
+      
     </div>
 
     <div class="row">
-      <div class="form-inputs col-xs-6">
+      <div class="form-inputs col-xs-5">
+        <%= f.input :address, label: "Street" %>
+      </div>
+      <div class="form-inputs col-xs-5">
           <%= f.input :suburb %>
         </div>
-        <div class="form-inputs col-xs-6">
+        <div class="form-inputs col-xs-2">
           <%= f.input :postcode %>
       </div>
     </div>
@@ -52,13 +54,13 @@
       <div class="form-inputs col-xs-4">
       <%= f.input :dateaccepted, label: "Date Accepted", as: :date, html5: true %>
       </div>
+      <div class="form-inputs col-xs-4">
+        <%= f.input :dateceased, label: "Date Ceased", as: :date, html5: true %>
+      </div>
     </div>
 
     <div class="row">
-      <div class="form-inputs col-xs-4">
-      <%= f.input :dateceased, label: "Date Ceased", as: :date, html5: true %>
-      </div>
-      <div class="form-inputs col-xs-8">
+      <div class="form-inputs col-xs-12">
       <%= f.input :comment, label: "Date Ceased Comment" %>
       </div>
     </div>
@@ -72,10 +74,8 @@
     </div>
 
   <% end %>
-
-  <br>
-    <%= link_to 'Back', residents_path, :class => "btn btn-small btn-info" %>
-  <hr>
-
+<br>
+  <%= link_to 'Back', residents_path, :class => "btn btn-small btn-info" %>
+ 
   </div>
 </div>

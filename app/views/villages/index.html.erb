@@ -11,7 +11,7 @@
       <%= link_to "Prospects", prospect_villages_path, :class => "btn btn-small btn-success" %>
       <%= link_to "Cancelled", cancelled_villages_path, :class => "btn btn-small btn-success" %>
       <% if current_user.try(:vip?) or current_user.try(:admin?) %>
-          <%= link_to 'New Village', new_village_path, :class => "btn btn-small btn-primary" %>
+          <%= link_to 'New Village', new_village_path, :class => "btn btn-small btn-danger" %>
       <% end %>
     </p>
 
@@ -22,8 +22,7 @@
           <%= link_to 'x', villages_path, :class => "btn btn-xs btn-success" %>
         </p>
     <% end %>
-
-    <div class="media">
+<div class="media">
       <div class="media-body">
         <table class="table table-hover table-condensed">
           <thead>
@@ -35,7 +34,6 @@
             <th>E-Mail</th>
             <th>Fin-To</th>
             <th># Units</th>
-            <th>Status</th>
 
             <th colspan="3"></th>
           </tr>
@@ -51,7 +49,6 @@
                 <td><%= village.email %></td>
                 <td><%= village.financial_to %></td>
                 <td><%= village.numres %></td>
-                <%= village.status.name %></td>
                 <% if current_user.try(:vip?) or current_user.try(:admin?) %>
                     <td><%= link_to 'Edit', edit_village_path(village), :class => "btn btn-xs btn-success" %></td>
                     <td><%= link_to 'x', village, method: :delete, data: {confirm: 'Are you sure?'}, :class => "btn btn-xs btn-danger" %></td>
@@ -60,12 +57,11 @@
           <% end %>
           </tbody>
         </table>
-      </div>
-    </div>
-
+</div>
+</div>
     <br>
     <% if current_user.try(:vip?) or current_user.try(:admin?) %>
-        <%= link_to 'New Village', new_village_path, :class => "btn btn-small btn-primary" %>
+        <%= link_to 'New Village', new_village_path, :class => "btn btn-small btn-danger" %>
     <% end %>
   </div>
 </div>

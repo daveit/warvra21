@@ -2,8 +2,9 @@ Rails.application.routes.draw do
   
   #get 'residents/index'
 
-  resources :miscellaneous_contacts
-  resources :contacts_categories
+  # resources :miscellaneous_contacts
+  # resources :contacts_categories
+
   resources :inews
   resources :acc_trans
   resources :acc_logs
@@ -54,6 +55,7 @@ Rails.application.routes.draw do
     resources :contacts
     resources :vreceipts
     resources :reminders
+    resources :residents
   end
 
   resources :village_categories
