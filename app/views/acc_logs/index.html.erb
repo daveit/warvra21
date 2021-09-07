@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Acc Logs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Account</th>
+      <th>Bank acc</th>
+      <th>Debits</th>
+      <th>Credits</th>
+      <th>Balance</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @acc_logs.each do |acc_log| %>
+      <tr>
+        <td><%= acc_log.id %></td>
+        <td><%= acc_log.account_id %></td>
+        <td><%= acc_log.bank_acc_id %></td>
+        <td><%= acc_log.debits %></td>
+        <td><%= acc_log.credits %></td>
+        <td><%= acc_log.balance %></td>
+        <td><%= acc_log.user_id %></td>
+        <td><%= link_to 'Show', acc_log %></td>
+        <td><%= link_to 'Edit', edit_acc_log_path(acc_log) %></td>
+        <td><%= link_to 'Destroy', acc_log, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Acc log', new_acc_log_path %>

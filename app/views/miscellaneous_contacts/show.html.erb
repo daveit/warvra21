@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @miscellaneous_contact.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @miscellaneous_contact.address %>
+</p>
+
+<p>
+  <strong>Workphone:</strong>
+  <%= @miscellaneous_contact.workphone %>
+</p>
+
+<p>
+  <strong>Mobilephone:</strong>
+  <%= @miscellaneous_contact.mobilephone %>
+</p>
+
+<p>
+  <strong>Emailaddress:</strong>
+  <%= @miscellaneous_contact.emailaddress %>
+</p>
+
+<p>
+  <strong>Contactscategory:</strong>
+  <%= @miscellaneous_contact.ContactsCategory.name %>
+</p>
+
+<p>
+  <strong>Notes:</strong>
+  <%= @miscellaneous_contact.notes %>
+</p>
+
+<%= link_to 'Edit', edit_miscellaneous_contact_path(@miscellaneous_contact) %> |
+<%= link_to 'Back', miscellaneous_contacts_path %>

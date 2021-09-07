@@ -1,0 +1,137 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-6">
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4">
+    <% if current_user.try(:vip?) or current_user.try(:admin?) %>
+        <%= link_to 'Edit', edit_associate_path(@associate), :class => "btn btn-small btn-success" %>
+    <% end %>
+    <%= link_to 'Back', associates_path, :class => "btn btn-small btn-info" %>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+  <div class="col-xs-12 col-sm-6 col-md-8">
+    <%# <h2>Associate Details</h2> %>
+    <p id="notice"><%= notice %></p>
+    <h2>
+      <%# <strong>Name:</strong> %>
+      <strong><%= (@associate.first + " " + @associate.surname + " - " + @associate.title) %></strong>
+    </h2>
+
+    <p>
+      <strong>Email Address:</strong>
+      <%= @associate.email %>
+    </p>
+    <p>
+      <strong>Phone Mobile:</strong>
+      <%= @associate.phonemobile %>
+    </p>
+    <p>
+      <strong>Phone Work:</strong>
+      <%= @associate.phonework %>
+    </p>
+        <p>
+      <strong>Phone Home:</strong>
+      <%= @associate.phonehome %>
+    </p>
+
+    <hr class="style-one">
+    <h3>
+      <strong>Payer Name:
+      <%= (@associate.payer_name + " - " + @associate.payer_title ) %>
+      </strong>
+    </h3>
+
+    <p>
+      <strong>Email address:</strong>
+      <%= @associate.payer_email %>
+    </p>
+    <p>
+      <strong>Phone Mobile:</strong>
+      <%= @associate.payphonemobile %>
+    </p>
+    <p>
+      <strong>Phone Work:</strong>
+      <%= @associate.payphonework %>
+    </p>
+    <p>
+      <strong>Phone Home:</strong>
+      <%= @associate.payphonework %>
+    </p>
+    
+    <hr class="style-one">
+    <p>
+      <strong>Financial To:</strong>
+      <%= @associate.financialto %>
+    </p>
+
+    <hr class="style-one">
+    <h4><strong><em>Payment History</em></strong></h4>
+
+    <div class="media">
+      <div class="media-body">
+        <table class="table table-hover table-bordered">
+          <thead>
+          <tr>
+            <th>Date:</th>
+            <th>Amount:</th>
+            <th>Reference</th>
+            <th>Details</th>
+            <th>Paid By</th>
+            <th>Financial To</th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <% @associate.associate_payments.each do |payment| %>
+              <tr>
+                <td>
+                  <%= payment.datepaid %>
+                </td>
+                <td>
+                  <%= number_to_currency(payment.amount) %>
+                </td>
+                <td>
+                  <%= payment.reference %>
+                </td>
+                <td>
+                  <%= payment.details %>
+                </td>
+                <td>
+                  <%= payment.pay_type.name %>
+                </td>
+                <td>
+                  <%= payment.financialto %>
+                </td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="col-xs-6 col-md-8">
+      <% if current_user.try(:vip?) or current_user.try(:admin?) %>
+          <h4><strong><em>New Payment Entry</em></strong></h4>
+          <%= simple_form_for([@associate, @associate.associate_payments.build]) do |f| %>
+              <%= f.error_notification %>
+
+              <div class="form-inputs">
+                <%= f.input :datepaid, as: :date, label: 'Date Entered', html5: true %>
+                <%= f.input :amount, input_html: {:style => 'width: 500px'} %>
+                <%= f.association :pay_type %>
+                <%= f.input :reference, input_html: {:style => 'width: 500px'} %>
+                <%= f.input :details, input_html: {:style => 'width: 500px'} %>
+                <%= f.input :financialto, as: :date, label: 'Date Financial To', html5: true, input_html: { value: Date.today } %>
+              </div>
+              <div class="form-actions">
+                <%= f.button :submit, "Save", :class => "btn btn-small btn btn-danger" %>
+              </div>
+          <% end %>
+      <% end %>
+
+  </div>
+</div>
+</div>

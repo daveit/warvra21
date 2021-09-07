@@ -1,0 +1,119 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-md-8">
+
+    <p id="notice"><%= notice %></p>
+
+    <p>
+      <strong>Name:</strong>
+      <%= @individual.title.name %> <%= @individual.first %> <%= @individual.last %>
+    </p>
+
+    <p>
+      <%= @individual.address1 %>
+      <br>
+      <%= @individual.address2 %>
+      <br>
+      <%= @individual.suburb %>,
+      <%= @individual.postcode %>
+    </p>
+
+    <p>
+      <strong>Phone:</strong>
+      <%= @individual.phone %>
+    </p>
+
+    <p>
+      <strong>Mobile:</strong>
+      <%= @individual.mobile %>
+    </p>
+
+    <p>
+      <strong>Email:</strong>
+      <%= @individual.email %>
+    </p>
+
+    <p>
+      <strong>Financial to:</strong>
+      <%= @individual.financial_to %>
+    </p>
+
+    <p>
+      <strong>Status:</strong>
+      <%= @individual.status.name %>
+    </p>
+
+    <% if current_user.try(:vip?) or current_user.try(:admin?) %>
+        <%= link_to 'Edit', edit_individual_path(@individual), :class => "btn btn-small btn-info" %>
+    <% end %>
+    <%= link_to 'Back', individuals_path, :class => "btn btn-small btn-info" %>
+    <hr class="style-one">
+
+    <% if current_user.try(:vip?) or current_user.try(:admin?) %>
+        <h3>Receipt History:</h3>
+        <div class="media">
+          <div class="media-body">
+            <table class="table table-hover table-bordered">
+              <thead>
+              <tr>
+                <th>Date:</th>
+                <th>Amount:</th>
+                <th>Paid By</th>
+                <th>Reference</th>
+                <th>Details</th>
+              </tr>
+              </thead>
+
+              <tbody>
+              <% @individual.ireceipts.each do |rec| %>
+                  <tr>
+                    <td>
+                      <%= rec.rdate %>
+                    </td>
+                    <td>
+                      <%= number_to_currency(rec.amount) %>
+                    </td>
+                    <td>
+                      <%= rec.pay_type.name %>
+                    </td>
+                    <td>
+                      <%= rec.reference %>
+                    </td>
+                    <td>
+                      <%= rec.details %>
+                    </td>
+                  </tr>
+              <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+    <% end %>
+
+  </div>
+
+  <div class="col-xs-6 col-md-4">
+    <% if current_user.try(:vip?) or current_user.try(:admin?) %>
+
+        <h3>Enter a new Receipt:</h3>
+        <%= simple_form_for([@individual, @individual.ireceipts.build]) do |f| %>
+            <%= f.error_notification %>
+
+            <div class="form-inputs">
+              <%= f.input :rdate, as: :date, label: "Receipt Date", html5: true %>
+              <%= f.input :amount %>
+              <%= f.association :pay_type %>
+              <%= f.input :reference %>
+              <%= f.input :details %>
+              <%= f.input :financial_to, as: :date, label: 'Financial To', html5: true %>
+            </div>
+
+            <div class="form-actions">
+              <%= submit_tag "Save Receipt", :class => "btn btn-small btn-success" %>
+            </div>
+        <% end %>
+    <% end %>
+    <br>
+  </div>
+
+</div>

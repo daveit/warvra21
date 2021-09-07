@@ -1,0 +1,2 @@
+json.extract! miscellaneous_contact, :id, :name, :address, :workphone, :mobilephone, :emailaddress, :ContactsCategory_id, :notes, :created_at, :updated_at
+json.url miscellaneous_contact_url(miscellaneous_contact, format: :json)

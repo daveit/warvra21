@@ -1,0 +1,2 @@
+module InewsHelper
+end

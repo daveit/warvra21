@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Suburbs</h1>
+<h3><%= paginate @suburbs %></h3>
+
+<%= form_tag suburbs_path, :method => 'get' do %>
+    <p>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", :name => nil %>
+    </p>
+<% end %>
+
+<div class="media">
+  <div class="media-body">
+    <table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+      <tbody>
+    <% @suburbs.each do |suburb| %>
+      <tr>
+        <td><%= suburb.name %></td>
+        <td><%= link_to 'Show', suburb %></td>
+        <td><%= link_to 'Edit', edit_suburb_path(suburb) %></td>
+        <td><%= link_to 'Destroy', suburb, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>
+
+<br>
+
+<h3><%= paginate @suburbs %></h3>
+
+<%= link_to 'New Suburb', new_suburb_path %>
+
+<h3>Import Suburbs</h3>
+<%= form_tag import_suburbs_path, multipart: true do %>
+  <%= file_field_tag :file %>
+    <br>
+  <%= submit_tag "Upload Suburbs CSV File" %>
+<% end %>

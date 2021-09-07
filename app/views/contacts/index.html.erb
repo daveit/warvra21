@@ -1,0 +1,43 @@
+<h1>Listing Village Contacts</h1>
+
+<%= form_tag contacts_path, :method => 'get' do %>
+    <p>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search contacts name", :name => nil %>
+      <%= link_to 'x', contacts_path, :class => "btn btn-xs btn-success" %>
+    </p>
+<% end %>
+
+<div class="media">
+  <div class="media-body">
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th>Title</th>
+        <th>Name</th>
+        <th>Village</th>
+        <th>Position</th>
+        <th>Phone</th>
+        <th>Mobile</th>
+        <th colspan="2"></th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @contacts.each do |contact| %>
+          <tr>
+            <td><%= contact.title.name %></td>
+            <td><%= contact.name %></td>
+            <td><%= contact.village.name %></td>
+            <td><%= contact.position.name %></td>
+            <td><%= contact.phone %></td>
+            <td><%= contact.mobile %></td>
+            <% if current_user.try(:vip?) or current_user.try(:admin?) %>
+                <td><%= link_to 'Edit', edit_contact_path(contact), :class => "btn btn-xs btn-success" %></td>
+                <td><%= link_to 'x', contact, method: :delete, data: {confirm: 'Are you sure?'}, :class => "btn btn-xs btn-danger" %></td>
+            <% end %>          </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

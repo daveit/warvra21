@@ -1,0 +1,124 @@
+// import the CSS framework
+// @import "bootstrap-sprockets";
+// @import "bootstrap";
+.btn-default {
+  color: #212529;
+  background-color: #7cc;
+  border-color: #5bc2c2
+}
+
+.checkbox_container {
+  display: inline-block;
+  vertical-align: -1px;
+  margin: 5px;
+}
+.checkbox_container input {
+  display: inline;
+}
+.checkbox_container .collection_check_boxes{
+  display: inline;
+  vertical-align: -5px;
+}
+
+hr.style-four {
+  height: 12px;
+  border: 0;
+  box-shadow: inset 0 12px 12px -12px rgba(0, 0, 0, 0.5);
+}
+
+hr.style-one {
+  border: 0;
+  height: 1px;
+  background: #333;
+  background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+hr.style-seven {
+  height: 30px;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px 0 0 0;
+  border-radius: 20px;
+}
+hr.style-seven:before { /!* Not really supposed to work, but does *!/
+display: block;
+  content: "";
+  height: 30px;
+  margin-top: -31px;
+  border-style: solid;
+  border-color: black;
+  border-width: 0 0 1px 0;
+  border-radius: 20px;
+}
+
+hr.style-two {
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+img {
+  @extend .img-responsive;
+  margin: 0 auto;
+}
+
+/!* Sticky footer styles
+-------------------------------------------------- *!/
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+/!* Margin bottom by footer height *!/
+margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+/!* Set the fixed height of the footer here *!/
+height: 60px;
+  background-color: #f5f5f5;
+}
+
+// make all images responsive by default
+/*
+
+// override for the 'Home' navigation link
+.navbar-brand {
+  font-size: inherit;
+  }
+
+// apply styles to HTML elements
+// to make views framework-neutral
+main {
+  @extend .container;
+  background-color: #eee;
+  padding-bottom: 80px;
+  width: 100%;
+  margin-top: 51px; // accommodate the navbar
+  }
+section {
+  @extend .row;
+  margin-top: 20px;
+  }
+
+
+
+/!* Custom page CSS
+-------------------------------------------------- *!/
+/!* Not required for template or sticky footer method. *!/
+
+body > .container {
+  padding: 1px 1px 0;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+code {
+  font-size: 80%;
+}*/

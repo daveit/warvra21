@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Bank:</strong>
+  <%= @acc_setting.bank %>
+</p>
+
+<p>
+  <strong>Log num:</strong>
+  <%= @acc_setting.log_num %>
+</p>
+
+<p>
+  <strong>Organisation name:</strong>
+  <%= @acc_setting.organisation_name %>
+</p>
+
+<p>
+  <strong>Fin year ending:</strong>
+  <%= @acc_setting.fin_year_ending %>
+</p>
+
+<%= link_to 'Edit', edit_acc_setting_path(@acc_setting) %> |
+<%= link_to 'Back', acc_settings_path %>

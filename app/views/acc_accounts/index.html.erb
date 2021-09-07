@@ -1,0 +1,42 @@
+<div class="row">
+  <div class="col-xs-6 col-sm-4 col-md-8">
+    <p id="notice"><%= notice %></p>
+
+    <h1>Listing Acc Accounts</h1>
+
+    <div class="media">
+      <div class="media-body">
+        <table class="table table-hover">
+          <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Numtran</th>
+            <th>Balance</th>
+            <th colspan="3"></th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <% @acc_accounts.each do |acc_account| %>
+              <tr>
+                <td><%= acc_account.name %></td>
+                <td><%= acc_account.type %></td>
+                <td><%= acc_account.numtran %></td>
+                <td><%= acc_account.balance %></td>
+                <td><%= link_to 'Show', acc_account %></td>
+                <td><%= link_to 'Edit', edit_acc_account_path(acc_account) %></td>
+                <td><%= link_to 'Destroy', acc_account, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+    <br>
+
+    <%= link_to 'New Acc account', new_acc_account_path %>
+  </div>
+</div>

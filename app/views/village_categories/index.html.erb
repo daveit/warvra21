@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Village Categories</h1>
+
+<div class="media">
+  <div class="media-body">
+    <table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="2"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @village_categories.each do |village_category| %>
+      <tr>
+        <td><%= village_category.name %></td>
+        <% if current_user.try(:vip?) or current_user.try(:admin?) %>
+            <td><%= link_to 'Edit', edit_village_category_path(village_category), :class => "btn btn-xs btn-success" %></td>
+        <td><%= link_to 'x', village_category, method: :delete, data: { confirm: 'Are you sure?' }, :class => "btn btn-xs btn-danger"  %></td>
+        <% end %>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+</div>
+
+<br>
+
+<%= link_to 'New Village category', new_village_category_path, :class => "btn btn-small btn-info" %>

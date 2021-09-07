@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Log:</strong>
+  <%= @acc_tran.log_id %>
+</p>
+
+<p>
+  <strong>Tdate:</strong>
+  <%= @acc_tran.tdate %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @acc_tran.amount %>
+</p>
+
+<p>
+  <strong>Ref1:</strong>
+  <%= @acc_tran.ref1 %>
+</p>
+
+<p>
+  <strong>Ref2:</strong>
+  <%= @acc_tran.ref2 %>
+</p>
+
+<p>
+  <strong>Details:</strong>
+  <%= @acc_tran.details %>
+</p>
+
+<p>
+  <strong>Acc bank account:</strong>
+  <%= @acc_tran.acc_bank_account %>
+</p>
+
+<p>
+  <strong>Acc account:</strong>
+  <%= @acc_tran.acc_account %>
+</p>
+
+<%= link_to 'Edit', edit_acc_tran_path(@acc_tran) %> |
+<%= link_to 'Back', acc_trans_path %>

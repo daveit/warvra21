@@ -1,0 +1,17 @@
+<%= simple_form_for(@acc_log) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :id %>
+    <%= f.input :account_id %>
+    <%= f.input :bank_acc_id %>
+    <%= f.input :debits %>
+    <%= f.input :credits %>
+    <%= f.input :balance %>
+    <%= f.input :user_id %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

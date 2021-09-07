@@ -1,0 +1,33 @@
+<div class="row">
+  <div class="col-xs-10 col-sm-4 col-md-6">
+
+    <%= simple_form_for @village do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs col-md-6">
+          <%= f.input :name, input_html: {:style => 'width: 500px'} %>
+          <%= f.input :address, input_html: {:style => 'width: 500px'} %>
+          <%= f.input :address2, input_html: {:style => 'width: 500px'} %>
+          <%= f.input :suburb, input_html: {:style => 'width: 500px'} %>
+          <%= f.input :postcode, input_html: {:style => 'width: 200px'} %>
+          <%= f.input :phone, input_html: {:style => 'width: 300px'} %>
+          <%= f.input :financial_to, as: :date, html5: true %>
+          <%= f.input :email, input_html: {:style => 'width: 300px'} %>
+          <%= f.input :owner, input_html: {:style => 'width: 300px'} %>
+          <%= f.input :operator, label: 'Administrative Body', input_html: {:style => 'width: 300px'} %>
+          <%= f.input :manager, input_html: {:style => 'width: 300px'} %>
+          <%= f.input :memorial_number, input_html: {:style => 'width: 300px'} %>
+          <%= f.input :numres, as: :integer, label: 'No of Units?', input_html: {:style => 'width: 200px'} %> 
+          <%= f.association :status, as: :radio_buttons %>
+          <%= f.association :region, as: :radio_buttons %>
+          <%
+=begin%>
+ <%= f.association :village_categories, as: :check_boxes %> 
+<%
+=end%>
+          <%= submit_tag "Save Village", :class => "btn btn-small btn-success" %>
+        </div>
+    <% end %>
+
+  </div>
+</div>

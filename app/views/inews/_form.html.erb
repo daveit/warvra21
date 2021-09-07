@@ -1,0 +1,20 @@
+<%= simple_form_for(@inews) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :first %>
+    <%= f.input :last %>
+    <%= f.input :idate %>
+    <%= f.input :description %>
+    <%= f.input :status %>
+    <%= f.input :total %>
+    <%= f.input :subject %>
+    <%= f.input :body %>
+    <%= f.input :fromemail %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

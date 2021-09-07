@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Contacts Categories</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contacts_categories.each do |contacts_category| %>
+      <tr>
+        <td><%= contacts_category.name %></td>
+        <td><%= link_to 'Show', contacts_category %></td>
+        <td><%= link_to 'Edit', edit_contacts_category_path(contacts_category) %></td>
+        <td><%= link_to 'Destroy', contacts_category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Contacts category', new_contacts_category_path %>

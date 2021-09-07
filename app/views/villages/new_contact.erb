@@ -1,0 +1,16 @@
+<h2>Add a contact:</h2>
+<%= simple_form_for([@village, @village.contacts.build]) do |f| %>
+    <%= f.error_notification %>
+
+    <div class="form-inputs">
+      <%= f.association :title, input_html: {:style => 'width: 200px'} %>
+      <%= f.input :name, input_html: {:style => 'width: 500px'}  %>
+      <%= f.input :phone, input_html: {:style => 'width: 500px'}  %>
+      <%= f.input :mobile, input_html: {:style => 'width: 500px'}  %>
+      <%= f.input :email, input_html: {:style => 'width: 500px'}  %>
+      <%= f.association :position, input_html: {:style => 'width: 300px'} %>
+    </div>
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+<% end %>

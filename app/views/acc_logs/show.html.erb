@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Id:</strong>
+  <%= @acc_log.id %>
+</p>
+
+<p>
+  <strong>Account:</strong>
+  <%= @acc_log.account_id %>
+</p>
+
+<p>
+  <strong>Bank acc:</strong>
+  <%= @acc_log.bank_acc_id %>
+</p>
+
+<p>
+  <strong>Debits:</strong>
+  <%= @acc_log.debits %>
+</p>
+
+<p>
+  <strong>Credits:</strong>
+  <%= @acc_log.credits %>
+</p>
+
+<p>
+  <strong>Balance:</strong>
+  <%= @acc_log.balance %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @acc_log.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_acc_log_path(@acc_log) %> |
+<%= link_to 'Back', acc_logs_path %>

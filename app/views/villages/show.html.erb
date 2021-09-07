@@ -1,0 +1,216 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-md-9">
+
+    <h3>
+      <em><%= @village.name %> <span class="text-muted">(<%= @village.region.name %>)</span></em>
+    </h3>
+
+    <p>
+    <%= @village.address %>
+      <br>
+      <%= @village.address2 %>
+      <br>
+      <%= @village.suburb %>
+      <%= @village.postcode %>
+    </p>
+
+    <p>
+      <%= @village.phone %>
+      <br>
+      <%= @village.email %>
+    </p>
+
+    <p>
+      <strong>No of Units</strong>
+      <%= @village.numres %>
+    </p>
+
+    <p>
+      <strong>Financial To:</strong>
+      <%= @village.financial_to %>
+    </p>
+
+    <p><strong>Status:</strong>
+      <%= @village.status.name %>
+    </p>
+
+    <p>
+      <%= @village.owner %> |
+      <%= @village.operator %> |
+      <%= @village.manager %> |
+      <%= @village.memorial_number %>
+    </p>
+
+    <h3>Contacts</h3>
+
+    <div class="media">
+      <div class="media-body">
+        <table class="table table-hover table-bordered">
+          <thead>
+          <tr>
+            <th>Name</th>
+            <th>Title</th>
+            <th>Phone</th>
+            <th>Mobile</th>
+            <th>Email</th>
+            <th>Position</th>
+            <th>Admin?</th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <% @village.contacts.each do |contact| %>
+              <tr>
+                <td>
+                  <%= link_to contact.name, contact %>
+                </td>
+                <td>
+                  <%= contact.title.name %>
+                </td>
+                <td>
+                  <%= contact.phone %>
+                </td>
+                <td>
+                  <%= contact.mobile %>
+                </td>
+                <td>
+                  <%= contact.email %>
+                </td>
+                <td>
+                  <%= contact.position.name %>
+                </td>
+                <td>
+                  <%= check_box "", "", {:checked => contact.admin, :disabled => true} %></td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <h3>Receipt History</h3>
+
+    <div class="media">
+      <div class="media-body">
+        <table class="table table-hover table-bordered">
+          <thead>
+          <tr>
+            <th>Date:</th>
+            <th>Amount:</th>
+            <th>Paid By</th>
+            <th>Reference</th>
+            <th>Details</th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <% @village.vreceipts.each do |rec| %>
+              <tr>
+                <td>
+                  <%= link_to rec.rdate, rec  %>
+                </td>
+                <td>
+                  <%= number_to_currency(rec.recamount) %>
+                </td>
+                <td>
+                  <%= rec.pay_type.name %>
+                </td>
+                <td>
+                  <%= rec.reference %>
+                </td>
+                <td>
+                  <%= rec.details %>
+                </td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <hr class="style-one">
+
+    <h3>Village Members</h3>
+     <div class="media">
+      <div class="media-body">
+        <table class="table table-hover table-bordered">
+          <thead>
+          <tr>
+            <th>Surname</th>
+            <th>First</th>
+            <th>Phone</th>
+            <th>Email</th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <% @village.residents.each do |residents| %>
+              <tr>
+                <td>
+                  <%= link_to residents.surname, residents %>
+                </td>
+                <td>
+                  <%= residents.first %>
+                </td>
+                <td>
+                  <%= residents.phone %>
+                </td>
+                <td>
+                  <%= residents.email %>
+                </td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <% if current_user.try(:vip?) or current_user.try(:admin?) %>
+        <%= link_to 'Edit', edit_village_path(@village), :class => "btn btn-small btn-primary" %>
+        <%= link_to 'Back', villages_path, :class => "btn btn-small btn-primary" %>
+    <% end %>
+  </div>
+
+  <div class="col-xs-6 col-md-3">
+    <% if current_user.try(:vip?) or current_user.try(:admin?) %>
+        <h3>Add a contact:</h3>
+        <%= simple_form_for([@village, @village.contacts.build]) do |f| %>
+            <%= f.error_notification %>
+
+            <div class="form-inputs">
+              <%= f.association :title, input_html: {:style => 'width: 200px'} %>
+              <%= f.input :name, input_html: {:style => 'width: 500px'} %>
+              <%= f.input :phone, input_html: {:style => 'width: 500px'} %>
+              <%= f.input :mobile, input_html: {:style => 'width: 500px'} %>
+              <%= f.input :email, input_html: {:style => 'width: 500px'} %>
+              <%= f.association :position, input_html: {:style => 'width: 300px'} %>
+              <%= f.input :admin, as: :boolean, checked_value: true, unchecked_value: false %>
+            </div>
+            <div class="form-actions">
+              <%= f.button :submit, :class => "btn btn-small btn-primary" %>
+            </div>
+        <% end %>
+    <% end %>
+    <hr class="style-one">
+    <% if current_user.try(:vip?) or current_user.try(:admin?) %>
+        <h3>Enter a Receipt:</h3>
+        <%= simple_form_for([@village, @village.vreceipts.build]) do |f| %>
+            <%= f.error_notification %>
+            <div class="form-inputs">
+              <%= f.input :rdate, as: :date, label: 'Date Entered', html5: true %>
+              <%= f.association :pay_type, label: 'Payment Type', input_html: {:style => 'width: 200px'} %>
+              <%= f.input :reference, input_html: {:style => 'width: 500px'} %>
+              <%= f.input :recamount, label: 'Amount', input_html: {:style => 'width: 500px'} %>
+              <%= f.input :details, input_html: {:style => 'width: 500px'} %>
+              <%= f.input :finto, as: :date, label: 'Financial To', html5: true %>
+            </div>
+            <div class="form-actions">
+              <%= f.submit 'Save Receipt', :class => "btn btn-small btn-primary" %>
+            </div>
+        <% end %>
+    <% end %>
+
+    <br>
+
+  </div>
+
+</div>

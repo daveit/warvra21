@@ -1,0 +1,17 @@
+<%= simple_form_for(@acc_tran) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :acc_bank_account, label: "Select Bank Account" %>
+    <%= f.association :acc_account, label: "Select Account" %>
+    <%= f.input :tdate, label: "Transaction Date" %>
+    <%= f.input :amount %>
+    <%= f.input :ref1 %>
+    <%= f.input :ref2 %>
+    <%= f.input :details %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

@@ -1,0 +1,11 @@
+WARVRA - Membership Program
+================
+
+Notes:
+
+rails generate model AssociatePayments datepaid:date 
+amount:decimal reference:string financialto:date associate:references
+
+rails generate controller AssociatePayments
+
+rails generate migration AddDetailsToAssociatePayments details:string

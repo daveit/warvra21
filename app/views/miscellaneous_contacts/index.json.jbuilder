@@ -1,0 +1,1 @@
+json.array! @miscellaneous_contacts, partial: 'miscellaneous_contacts/miscellaneous_contact', as: :miscellaneous_contact

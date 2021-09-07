@@ -1,0 +1,2 @@
+module AccBankAccountsHelper
+end

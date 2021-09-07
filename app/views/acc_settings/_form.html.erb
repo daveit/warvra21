@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-md-8">
+
+    <%= simple_form_for(@acc_setting) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs">
+          <%= f.input :bank %>
+          <%= f.input :log_num %>
+          <%= f.input :organisation_name %>
+          <%= f.input :fin_year_ending %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit %>
+        </div>
+    <% end %>
+  </div>
+</div>

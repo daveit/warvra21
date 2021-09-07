@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-xs-10 col-sm-6 col-md-8">
+
+    <p id="notice"><%= notice %></p>
+
+    <h2>
+      <%= @resident.first %>  <%= @resident.surname %> @ <%= @resident.village.name %>
+    </h2>
+    <hr>
+    <h3><strong>Contact Details:</strong></h3>
+    <p>
+      <strong>Email:</strong> <%= @resident.email %>
+    </p>
+    <p>
+    <strong>Phone# <%= @resident.phone %></strong>
+     </p>
+     <p>
+     <% if @resident.address then %>
+      <strong>Address:</strong>
+      <%= @resident.address %>, <%= @resident.suburb %> <%= @resident.postcode %>
+    </p>
+    <% end %>
+    <hr>
+    <h3><strong>Dates:</strong></h3>
+    <p>
+      Received: <%= @resident.datereceived %> 
+    </p>
+    <p>Accepted: <%= @resident.dateaccepted %></p>
+    <% if @resident.dateceased then %>
+    <p>
+      Ceased: <%= @resident.dateceased %> Reason: <%= @resident.comment %>
+    </p> 
+    <% end %>
+    <%= link_to 'Edit', edit_resident_path(@resident), :class => "btn btn-small btn-danger" %>
+    <%= link_to 'Back', residents_path, :class => "btn btn-small btn-info" %>
+
+    </div>
+</div>

@@ -1,0 +1,1 @@
+json.partial! "contacts_categories/contacts_category", contacts_category: @contacts_category

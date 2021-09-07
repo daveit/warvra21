@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-8 col-md-4">
+
+    <%= simple_form_for(@assocatepayment) do |f| %>
+
+        <h3>Associate Payment Processing</h3>
+
+        <div class="form-inputs">
+          <%= f.association :associate, input_html: {:style => 'width: 500px'} %>
+          <%= f.input :datepaid, as: :date, label: 'Receipt date', html5: true %>
+          <%= f.input :amount %>
+          <%= f.input :reference %>
+          <%= f.input :financialto, as: :date, label: 'Financial To', html5: true %>
+<!--
+          <%= f.association :pay_type %>
+-->
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Save this payment", :class => "btn btn-small btn-success" %>
+        </div>
+    <% end %>
+  </div>
+</div>

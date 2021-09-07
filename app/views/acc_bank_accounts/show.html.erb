@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @acc_bank_account.name %>
+</p>
+
+<p>
+  <strong>Opening:</strong>
+  <%= @acc_bank_account.opening %>
+</p>
+
+<p>
+  <strong>Outgoing:</strong>
+  <%= @acc_bank_account.outgoing %>
+</p>
+
+<p>
+  <strong>Incoming:</strong>
+  <%= @acc_bank_account.incoming %>
+</p>
+
+<p>
+  <strong>Balance:</strong>
+  <%= @acc_bank_account.balance %>
+</p>
+
+<%= link_to 'Edit', edit_acc_bank_account_path(@acc_bank_account) %> |
+<%= link_to 'Back', acc_bank_accounts_path %>

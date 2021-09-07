@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Acc Trans</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Log</th>
+      <th>Tdate</th>
+      <th>Amount</th>
+      <th>Ref1</th>
+      <th>Ref2</th>
+      <th>Details</th>
+      <th>Acc bank account</th>
+      <th>Acc account</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @acc_trans.each do |acc_tran| %>
+      <tr>
+        <td><%= acc_tran.log_id %></td>
+        <td><%= acc_tran.tdate %></td>
+        <td><%= acc_tran.amount %></td>
+        <td><%= acc_tran.ref1 %></td>
+        <td><%= acc_tran.ref2 %></td>
+        <td><%= acc_tran.details %></td>
+        <td><%= acc_tran.acc_bank_account %></td>
+        <td><%= acc_tran.acc_account %></td>
+        <td><%= link_to 'Show', acc_tran %></td>
+        <td><%= link_to 'Edit', edit_acc_tran_path(acc_tran) %></td>
+        <td><%= link_to 'Destroy', acc_tran, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Acc tran', new_acc_tran_path %>

@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-xs-10 col-sm-4 col-md-6">
+    <%= simple_form_for(@associate) do |f| %>
+        <%= f.error_notification %>
+
+        <div class="form-inputs col-md-6">
+          <%= f.input :surname, input_html: {:style => 'width: 500px'} %>
+          <%= f.input :first, input_html: {:style => 'width: 500px'} %>
+          <%= f.input :title, input_html: {:style => 'width: 500px'} %>
+          <%= f.input :email, input_html: {:style => 'width: 500px'} %>
+          <%= f.input :phonemobile, label: 'Mobile Phone', input_html: {:style => 'width: 500px'} %>
+          <%= f.input :phonehome, label: 'Home Phone', input_html: {:style => 'width: 500px'} %>
+          <%= f.input :phonework, label: 'Work Phone', input_html: {:style => 'width: 500px'} %>
+          <%= f.input :payer_name, input_html: {:style => 'width: 500px'} %>
+          <%= f.input :payer_title, input_html: {:style => 'width: 500px'} %>
+          <%= f.input :payer_email, input_html: {:style => 'width: 500px'} %>
+          <%= f.input :payphonemobile, label: 'Mobile Phone', input_html: {:style => 'width: 500px'} %>
+          <%= f.input :payphonehome, label: 'Home Phone', input_html: {:style => 'width: 500px'} %>
+          <%= f.input :payphonework, label: 'Work Phone', input_html: {:style => 'width: 500px'} %>
+          <%= f.input :management, as: :radio_buttons %>
+          <%= submit_tag "Save Associate", :class => "btn btn-small btn-success" %>
+        </div>
+    <% end %>
+
+  </div>
+</div>

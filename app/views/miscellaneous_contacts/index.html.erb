@@ -1,0 +1,37 @@
+<h2>Listing Contacts</h2>
+
+<div class="media">
+  <div class="media-body">
+    <table class="table table-hover">
+
+      <p id="notice"><%= notice %></p>
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Work Phone</th>
+        <th>Mobile Phone</th>
+        <th>Email Address</th>
+        <th>Category</th>
+        <th colspan="3"></th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @miscellaneous_contacts.each do |miscellaneous_contact| %>
+          <tr>
+            <td><%= miscellaneous_contact.name %></td>
+            <td><%= miscellaneous_contact.workphone %></td>
+            <td><%= miscellaneous_contact.mobilephone %></td>
+            <td><%= miscellaneous_contact.emailaddress %></td>
+            <td><%= miscellaneous_contact.ContactsCategory.name %></td>
+            <td><%= link_to 'Show', miscellaneous_contact %></td>
+            <td><%= link_to 'Edit', edit_miscellaneous_contact_path(miscellaneous_contact) %></td>
+            <td><%= link_to 'Destroy', miscellaneous_contact, method: :delete, data: {confirm: 'Are you sure?'} %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+
+    <br>
+
+    <%= link_to 'New Miscellaneous contact', new_miscellaneous_contact_path %>

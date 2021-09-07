@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h2>
+  <strong>Village Contact</strong>
+</h2>
+
+<p>
+  <strong>Name</strong>
+  <%= @contact.name %>
+</p>
+<p>
+  <strong>Phone</strong>
+  <%= @contact.phone %>
+</p>
+<p>
+  <strong>Email</strong>
+  <%= @contact.email %>
+</p>
+<p>
+  <strong>Title</strong>
+  <%= @contact.title.name %>
+</p>
+<p>
+  <strong>Position</strong>
+  <%= @contact.position.name %>
+</p>
+
+
+<% if current_user.try(:vip?) or current_user.try(:admin?) %>
+    <div class="form-actions">
+        <%= link_to 'Edit', edit_contact_path(@contact), :class => "btn btn-small btn-danger" %>           
+    </div>
+<% end %>

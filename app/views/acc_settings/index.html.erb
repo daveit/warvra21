@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Account Settings</h1>
+
+<div class="media">
+  <div class="media-body">
+    <table class="table table-hover">
+
+      <thead>
+      <tr>
+        <th>Bank</th>
+        <th>Log num</th>
+        <th>Organisation name</th>
+        <th>Fin year ending</th>
+        <th colspan="2"></th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @acc_settings.each do |acc_setting| %>
+          <tr>
+            <td><%= acc_setting.bank %></td>
+            <td><%= acc_setting.log_num %></td>
+            <td><%= acc_setting.organisation_name %></td>
+            <td><%= acc_setting.fin_year_ending %></td>
+            <td><%= link_to 'Show', acc_setting, :class => "btn btn-small btn-info" %></td>
+            <td><%= link_to 'Edit', edit_acc_setting_path(acc_setting), :class => "btn btn-small btn-success" %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<hr>

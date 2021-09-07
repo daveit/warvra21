@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @inews.title %>
+</p>
+
+<p>
+  <strong>First:</strong>
+  <%= @inews.first %>
+</p>
+
+<p>
+  <strong>Last:</strong>
+  <%= @inews.last %>
+</p>
+
+<p>
+  <strong>Idate:</strong>
+  <%= @inews.idate %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @inews.description %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @inews.status %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @inews.total %>
+</p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @inews.subject %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @inews.body %>
+</p>
+
+<p>
+  <strong>Fromemail:</strong>
+  <%= @inews.fromemail %>
+</p>
+
+<%= link_to 'Edit', edit_inews_path(@inews) %> |
+<%= link_to 'Back', inews_index_path %>

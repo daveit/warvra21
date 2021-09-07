@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @icat.name %>
+</p>
+
+<%= link_to 'Edit', edit_icat_path(@icat), :class => "btn btn-small btn-primary" %>
+<%= link_to 'Back', icats_path, :class => "btn btn-small btn-primary" %>

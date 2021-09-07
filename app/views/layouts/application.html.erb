@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title><%= content_for?(:title) ? yield(:title) : "WARVRA Membership Application" %></title>
+  <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Warem" %>">
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<header>
+  <%= render 'layouts/navigation' %>
+</header>
+<main role="main">
+  <div class="container">
+    <%= render 'layouts/messages' %>
+    <%= yield %>
+  </div>
+</main>
+</body>
+<footer class="footer">
+  <div class="container">
+    <hr>
+    <p class="text-muted">ⓒ 2021 WARVRA Membership Application - Ver. 31st August, 2021
+      <% if user_signed_in? %>
+          - Signed in as: <%= current_user.name %>
+      <% end %>
+    </p>
+  </div>
+</footer>
+</html>

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Rdate:</strong>
+  <%= @ireceipt.rdate %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @ireceipt.amount %>
+</p>
+
+<p>
+  <strong>Reference:</strong>
+  <%= @ireceipt.reference %>
+</p>
+
+<p>
+  <strong>Details:</strong>
+  <%= @ireceipt.details %>
+</p>
+
+<p>
+  <strong>Financial to:</strong>
+  <%= @ireceipt.financial_to %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @ireceipt.individual %>
+</p>
+
+<p>
+  <strong>Pay type:</strong>
+  <%= @ireceipt.pay_type.name %>
+</p>
+
+<%= link_to 'Edit', edit_ireceipt_path(@ireceipt) %> |
+<%= link_to 'Back', ireceipts_path %>

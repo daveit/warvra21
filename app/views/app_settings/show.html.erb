@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Vrate:</strong>
+  <%= @app_setting.Vrate %>
+</p>
+
+<p>
+  <strong>Irate:</strong>
+  <%= @app_setting.Irate %>
+</p>
+
+<p>
+  <strong>Lastinvnum:</strong>
+  <%= @app_setting.LastInvNum %>
+</p>
+
+<%= link_to 'Edit', edit_app_setting_path(@app_setting) %> |
+<%= link_to 'Back', app_settings_path %>
