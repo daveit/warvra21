@@ -241,7 +241,7 @@ DEPENDENCIES
   jquery-rails (~> 2.3.0)
   kaminari
   momentjs-rails (>= 2.9.0)
-  pg
+  pg (= 1.2.3)
   puma
   pundit
   quiet_assets

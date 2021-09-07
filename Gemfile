@@ -25,7 +25,6 @@ gem 'bootswatch-rails'
 gem 'kaminari'
 gem 'rails_db'
 gem "pundit"
-#gem 'pg'
 gem 'rails_12factor'
 gem "puma"
 #gem 'sqlite3'
@@ -34,7 +33,7 @@ gem "puma"
 #gem "nokogiri" "1.12.3"
 
 group :production do 
-  gem 'pg'
+  gem 'pg', '1.2.3'
 end
 
 group :development do
