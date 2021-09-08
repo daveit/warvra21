@@ -11,7 +11,7 @@
       <%= link_to "Financial", financial_individuals_path, :class => "btn btn-small btn-success" %>
       <%= link_to "Not-Financial", notfinancial_individuals_path, :class => "btn btn-small btn-success" %>
       <%= link_to "Cancelled", cancelled_individuals_path, :class => "btn btn-small btn-success" %>
-      <%= link_to 'New Individual', new_individual_path, :class => "btn btn-small btn-primary" %></p>
+      <%= link_to 'New Individual', new_individual_path, :class => "btn btn-small btn-danger" %></p>
 
       <%= form_tag individuals_path, :method => 'get' do %>
         <p>
@@ -72,7 +72,7 @@
     </div>
 
     <% if current_user.try(:vip?) or current_user.try(:admin?) %>
-        <%= link_to 'New Individual', new_individual_path, :class => "btn btn-sm btn-primary" %>
+        <%= link_to 'New Individual', new_individual_path, :class => "btn btn-sm btn-danger" %>
     <% end %>
     <hr>
 

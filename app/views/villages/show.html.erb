@@ -100,6 +100,7 @@
             <th>Paid By</th>
             <th>Reference</th>
             <th>Details</th>
+            <th></th>
           </tr>
           </thead>
 
@@ -120,6 +121,9 @@
                 </td>
                 <td>
                   <%= rec.details %>
+                </td>
+                <td>
+                  <button class="btn btn-sm btn-info">email</button>
                 </td>
               </tr>
           <% end %>
@@ -172,7 +176,7 @@
 
   <div class="col-xs-6 col-md-3">
     <% if current_user.try(:vip?) or current_user.try(:admin?) %>
-        <h3>Add a contact:</h3>
+        <h3>New Contact:</h3>
         <%= simple_form_for([@village, @village.contacts.build]) do |f| %>
             <%= f.error_notification %>
 
@@ -186,13 +190,13 @@
               <%= f.input :admin, as: :boolean, checked_value: true, unchecked_value: false %>
             </div>
             <div class="form-actions">
-              <%= f.button :submit, :class => "btn btn-small btn-success" %>
+              <%= f.submit 'Save Contact', :class => "btn btn-small btn-success" %>
             </div>
         <% end %>
     <% end %>
     <hr class="style-one">
     <% if current_user.try(:vip?) or current_user.try(:admin?) %>
-        <h3>Enter a Receipt:</h3>
+        <h3>New Receipt:</h3>
         <%= simple_form_for([@village, @village.vreceipts.build]) do |f| %>
             <%= f.error_notification %>
             <div class="form-inputs">
@@ -211,7 +215,7 @@
 
     <hr class="style-one">
     <% if current_user.try(:vip?) or current_user.try(:admin?) %>
-        <h4>Enter a new Village Member:</h4>
+        <h3>New Member:</h3>
         <%= simple_form_for([@village, @village.residents.build]) do |f| %>
             <%= f.error_notification %>
             <div class="form-inputs">

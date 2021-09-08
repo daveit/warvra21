@@ -60,6 +60,7 @@
                 <th>Paid By</th>
                 <th>Reference</th>
                 <th>Details</th>
+                <th></th>
               </tr>
               </thead>
 
@@ -67,7 +68,7 @@
               <% @individual.ireceipts.each do |rec| %>
                   <tr>
                     <td>
-                      <%= rec.rdate %>
+                      <%= link_to rec.rdate, rec  %>
                     </td>
                     <td>
                       <%= number_to_currency(rec.amount) %>
@@ -81,6 +82,9 @@
                     <td>
                       <%= rec.details %>
                     </td>
+                    <td>
+                  <button class="btn btn-sm btn-info">email</button>
+                </td>
                   </tr>
               <% end %>
               </tbody>
@@ -108,7 +112,7 @@
               <%= f.input :financial_to, as: :date, label: 'Financial To', html5: true %>
             </div>
 
-            <div class="form-actions">
+            <div class="form-actions">  
               <%= submit_tag "Save Receipt", :class => "btn btn-small btn-success" %>
             </div>
         <% end %>

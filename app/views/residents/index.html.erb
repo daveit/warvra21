@@ -4,6 +4,13 @@
 
 <%= link_to 'New Member', new_resident_path, :class => "btn btn-small btn-danger" %>
 
+<h3>Import Members</h3>
+<%= form_tag import_residents_path, multipart: true do %>
+  <%= file_field_tag :file %>
+    <br>
+  <%= submit_tag "Upload Members CSV File", :class => "btn btn-small btn-warning" %>
+<% end %>
+
 <div class="media">
       <div class="media-body">
         <table class="table table-hover table-condensed">
@@ -38,12 +45,3 @@
 </div>
 
 <%= link_to 'New Member', new_resident_path, :class => "btn btn-small btn-danger" %>
-
-<h3>Import Members</h3>
-<%= form_tag import_residents_path, multipart: true do %>
-  <%= file_field_tag :file %>
-    <br>
-  <%= submit_tag "Upload Members CSV File", :class => "btn btn-small btn-warning" %>
-<% end %>
-
-
