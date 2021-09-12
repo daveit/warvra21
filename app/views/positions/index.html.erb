@@ -6,10 +6,10 @@
 
     <div class="media">
       <div class="media-body">
-        <table class="table table-hover table-condensed">
-          <thead>
+        <table class="table table-hover table-condensed table-striped table-bordered">
+          <thead class="thead-dark">
           <tr>
-            <th><h3>Position Name</h3></th>
+            <th><h3>Name</h3></th>
             <th colspan="2"></th>
           </tr>
           </thead>
@@ -31,7 +31,7 @@
 
     <br>
     <% if current_user.try(:vip?) or current_user.try(:admin?) %>
-        <%= link_to 'New Position', new_position_path, :class => "btn btn-sm btn-info" %>
+        <%= link_to 'New Position', new_position_path, :class => "btn btn-sm btn-primary" %>
     <% end %>
   </div>
 </div>

@@ -1,11 +1,6 @@
 // import the CSS framework
 // @import "bootstrap-sprockets";
-// @import "bootstrap";
-.btn-default {
-  color: #212529;
-  background-color: #7cc;
-  border-color: #5bc2c2
-}
+@import "bootstrap";
 
 .checkbox_container {
   display: inline-block;
@@ -70,6 +65,7 @@ body {
 /!* Margin bottom by footer height *!/
 margin-bottom: 60px;
 }
+
 .footer {
   position: absolute;
   bottom: 0;

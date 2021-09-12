@@ -11,7 +11,7 @@
       <%= link_to "Prospects", prospect_villages_path, :class => "btn btn-small btn-success" %>
       <%= link_to "Cancelled", cancelled_villages_path, :class => "btn btn-small btn-success" %>
       <% if current_user.try(:vip?) or current_user.try(:admin?) %>
-          <%= link_to 'New Village', new_village_path, :class => "btn btn-small btn-danger" %>
+          <%= link_to 'New Village', new_village_path, :class => "btn btn-small btn-primary" %>
       <% end %>
     </p>
 
@@ -24,7 +24,7 @@
     <% end %>
 <div class="media">
       <div class="media-body">
-        <table class="table table-hover table-condensed">
+        <table class="table table-hover table-condensed table-striped table-bordered">
           <thead>
           <tr>
             <th>Name</th>
@@ -61,7 +61,7 @@
 </div>
     <br>
     <% if current_user.try(:vip?) or current_user.try(:admin?) %>
-        <%= link_to 'New Village', new_village_path, :class => "btn btn-small btn-danger" %>
+        <%= link_to 'New Village', new_village_path, :class => "btn btn-small btn-primary" %>
     <% end %>
   </div>
 </div>
