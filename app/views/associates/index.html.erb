@@ -7,7 +7,7 @@
         <%= link_to 'New Associate', new_associate_path, :class => "btn btn-sm btn-success" %>
     <% end %>
 
-    <h2>Family Associates</h2>
+    <h2>Associates</h2>
 
     <div class="media">
       <div class="media-body">
@@ -35,7 +35,9 @@
                 <td><%= associate.management %></td>
                 <% if current_user.try(:vip?) or current_user.try(:admin?) %>
                     <td><%= link_to 'Edit', edit_associate_path(associate), :class => "btn btn-xs btn-success" %></td>
-                    <td><%= link_to 'x', associate, method: :delete, data: {confirm: 'Permanently Remove this Associate?'}, :class => "btn btn-xs btn-danger" %></td>
+                    <% if current_user.try(:admin?) %>
+                      <td><%= link_to 'x', associate, method: :delete, data: {confirm: 'Permanently Remove this Associate?'}, :class => "btn btn-xs btn-danger" %></td>
+                    <% end %>
                 <% end %>
               </tr>
           <% end %>

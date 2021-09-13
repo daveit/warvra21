@@ -1,25 +1,24 @@
-<div class="container">
+  <div class="container-fluid">
   <div class="row">
-    <div class="col-xs-12 col-sm-6 col-md-6">
-    </div>
     <div class="col-xs-12 col-sm-6 col-md-4">
+    <p id="notice"><%= notice %></p>
     <% if current_user.try(:vip?) or current_user.try(:admin?) %>
         <%= link_to 'Edit', edit_associate_path(@associate), :class => "btn btn-small btn-success" %>
     <% end %>
     <%= link_to 'Back', associates_path, :class => "btn btn-small btn-info" %>
     </div>
   </div>
-</div>
+  </div>
 
 <div class="container-fluid">
   <div class="row">
   <div class="col-xs-12 col-sm-6 col-md-8">
-    <%# <h2>Associate Details</h2> %>
+    <h2>Associate Details</h2>
     <p id="notice"><%= notice %></p>
-    <h2>
+    <h3>
       <%# <strong>Name:</strong> %>
       <strong><%= (@associate.first + " " + @associate.surname + " - " + @associate.title) %></strong>
-    </h2>
+    </h3>
 
     <p>
       <strong>Email Address:</strong>
@@ -89,7 +88,7 @@
           <% @associate.associate_payments.each do |payment| %>
               <tr>
                 <td>
-                  <%= payment.datepaid %>
+                  <%= link_to payment.datepaid, associate_payment_path(payment) %>
                 </td>
                 <td>
                   <%= number_to_currency(payment.amount) %>
@@ -112,7 +111,9 @@
         </table>
       </div>
     </div>
-    <div class="col-xs-6 col-md-8">
+</div>
+ 
+    <div class="col-xs-6 col-md-4">
       <% if current_user.try(:vip?) or current_user.try(:admin?) %>
           <h4><strong><em>New Payment Entry</em></strong></h4>
           <%= simple_form_for([@associate, @associate.associate_payments.build]) do |f| %>
@@ -127,11 +128,10 @@
                 <%= f.input :financialto, as: :date, label: 'Date Financial To', html5: true, input_html: { value: Date.today } %>
               </div>
               <div class="form-actions">
-                <%= f.button :submit, "Save", :class => "btn btn-small btn btn-danger" %>
+                <%= f.button :submit, "Save", :class => "btn btn-small btn btn-primary" %>
               </div>
           <% end %>
       <% end %>
 
   </div>
-</div>
 </div>

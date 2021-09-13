@@ -51,7 +51,9 @@
                 <td><%= village.numres %></td>
                 <% if current_user.try(:vip?) or current_user.try(:admin?) %>
                     <td><%= link_to 'Edit', edit_village_path(village), :class => "btn btn-xs btn-success" %></td>
-                    <td><%= link_to 'x', village, method: :delete, data: {confirm: 'Are you sure?'}, :class => "btn btn-xs btn-danger" %></td>
+                    <% if current_user.try(:admin?) %>
+                      <td><%= link_to 'x', village, method: :delete, data: {confirm: 'Are you sure?'}, :class => "btn btn-xs btn-danger" %></td>
+                    <% end %>
                 <% end %>
               </tr>
           <% end %>

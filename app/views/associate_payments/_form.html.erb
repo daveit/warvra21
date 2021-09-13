@@ -1,9 +1,8 @@
 <div class="row">
   <div class="col-xs-12 col-sm-8 col-md-4">
 
-    <%= simple_form_for(@assocatepayment) do |f| %>
-
-        <h3>Associate Payment Processing</h3>
+    <%= simple_form_for(@assocatepayments) do |f| %>
+        <h3>New or Edit Associate Payment</h3>
 
         <div class="form-inputs">
           <%= f.association :associate, input_html: {:style => 'width: 500px'} %>

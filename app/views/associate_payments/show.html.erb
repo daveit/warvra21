@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+<h2>Associates Payment Details</h2>
+
+<h3>
+      <%= @associatepayments.associate.title %> <%= @associatepayments.associate.first %> <%= @associatepayments.associate.surname %>
+</h3>
+<p>
+  <strong>date:</strong>
+  <%= @associatepayments.datepaid %>
+</p>
+<p>
+  <strong>Amount:</strong>
+  <%= @associatepayments.amount %>
+</p>
+
+<p>
+  <strong>reference:</strong>
+  <%= @associatepayments.datepaid %>
+</p>
+
+<p>
+  <strong>Financial To:</strong>
+  <%= @associatepayments.financialto %>
+</p>
+<p>
+  <strong>Details:</strong>
+  <%= @associatepayments.details %>
+</p>
+<p>
+  <strong>Paid by:</strong>
+  <%= @associatepayments.pay_type.name %>
+</p>
+
+<%= link_to 'Back', associates_path, :class => "btn btn-small btn-primary" %>
+<%= link_to 'Editing is coming soon!', associates_path, :class => "btn btn-small btn-info" %>
