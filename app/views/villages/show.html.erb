@@ -213,7 +213,9 @@
         <% end %>
     <% end %>
 
-    <hr class="style-one">
+    <%
+=begin%>
+ <hr class="style-one">
     <% if current_user.try(:vip?) or current_user.try(:admin?) %>
         <h3>New Member:</h3>
         <%= simple_form_for([@village, @village.residents.build]) do |f| %>
@@ -235,7 +237,9 @@
         <% end %>
     <% end %>
 
-    <br>
+    <br> 
+<%
+=end%>
 
   </div>
 
