@@ -7,8 +7,9 @@ class Village < ActiveRecord::Base
 
   has_many :contacts
   has_many :vreceipts
-  has_many :residents
-  
+  has_many :residents, -> { order(surname: :asc) } 
+  #has_many :comments, -> { order(created_at: :desc) }
+    
   validates :name, presence: true
   validates_uniqueness_of :name
   validates :status_id, :presence => true

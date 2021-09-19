@@ -2,15 +2,28 @@
 
 <h1>Listing Members</h1>
 
-<%= link_to 'Add New Member', new_resident_path, :class => "btn btn-small btn-primary" %>
-
-<h3>Import Members</h3>
-<%= form_tag import_residents_path, multipart: true do %>
-  <%= file_field_tag :file %>
-    <br>
-  <%= submit_tag "Upload Members CSV File", :class => "btn btn-small btn-warning" %>
-<% end %>
-
+<div class="row">
+  <div class="col-xs-12 col-sm-3 col-md-4">
+    
+    <%= link_to 'Add New Member', new_resident_path, :class => "btn btn-small btn-primary" %>
+  </div>
+  <div class="col-xs-12 col-sm-3 col-md-4">
+    <%= form_tag residents_path, :method => 'get' do %>
+        <p>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "Surname Search", :name => nil %>
+          <%= link_to 'x', residents_path, :class => "btn btn-xs btn-success" %>
+        </p>
+      <% end %>
+  </div>
+  <div class="col-xs-12 col-sm-3 col-md-4">
+    <%= form_tag import_residents_path, multipart: true do %>
+      <%= file_field_tag :file %>
+      <%= submit_tag "Upload Members CSV File", :class => "btn btn-small btn-warning" %>
+    <% end %>
+  </div>
+</div>
+<hr>
 <div class="media">
       <div class="media-body">
         <table class="table table-hover table-condensed">
@@ -29,7 +42,7 @@
   <tbody>
     <% @residents.each do |resident| %>
       <tr>
-        <td><%= resident.surname %></td>
+        <td><%= link_to resident.surname, resident %></td>
         <td><%= resident.first %></td>
         <td><%= resident.village.name %></td>
         <td><%= resident.email %></td>
@@ -47,3 +60,10 @@
 </div>
 
 <%= link_to 'Add New Member', new_resident_path, :class => "btn btn-small btn-primary" %>
+
+<h4>Import Members</h4>
+<%= form_tag import_residents_path, multipart: true do %>
+  <%= file_field_tag :file %>
+    <br>
+  <%= submit_tag "Upload Members CSV File", :class => "btn btn-small btn-warning" %>
+<% end %>
