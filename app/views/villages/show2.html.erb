@@ -1,0 +1,63 @@
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-md-9">
+    <h3>
+      <em><%= @village.name %> <span class="text-muted">(<%= @village.region.name %>)</span></em>
+    </h3>
+    <h4>Village Members</h4>
+     <div class="media">
+      <div class="media-body">
+        <table class="table table-hover table-bordered">
+          <thead>
+          <tr>
+            <th>Surname</th>
+            <th>First</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Suburb</th>
+            <th>Received</th>
+            <th>Accepted</th>
+            <th>Ceased</th>
+            <th>Comments</th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <% @village.residents.each do |residents| %>
+              <tr>
+                <td>
+                  <%= link_to residents.surname, residents %>
+                </td>
+                <td>
+                  <%= residents.first %>
+                </td>
+                <td>
+                  <%= residents.phone %>
+                </td>
+                <td>
+                  <%= residents.email %>
+                </td>
+                <td>
+                  <%= residents.suburb %>
+                </td>
+                <td>
+                  <%= residents.datereceived %>
+                </td>
+                <td>
+                  <%= residents.dateaccepted %>
+                </td>
+                <td>
+                  <%= residents.dateceased %>
+                </td>
+                <td>
+                  <%= residents.comment %>
+                </td>
+              </tr>
+          <% end %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+<%= link_to 'Back', villages_path, :class => "btn btn-small btn-primary" %>
+</div>
+</div>
+

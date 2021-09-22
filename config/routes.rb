@@ -58,6 +58,8 @@ Rails.application.routes.draw do
     resources :residents
   end
 
+  get '/villages/res/:id', to: 'villages#show2', as: 'show2'
+
   resources :village_categories
   resources :statuses
   resources :suburbs

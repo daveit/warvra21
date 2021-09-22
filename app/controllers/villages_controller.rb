@@ -1,5 +1,5 @@
 class VillagesController < ApplicationController
-  before_action :set_village, only: [:show, :edit, :update, :destroy]
+  before_action :set_village, only: [:show, :show2, :edit, :update, :destroy]
 
   # GET /villages
   # GET /villages.json
@@ -43,6 +43,10 @@ class VillagesController < ApplicationController
   # GET /villages/1.json
   def show
     @notices = Notice.order(created_at: :desc).where(finalised: false)
+  end
+
+  def show2
+    render 'show2'
   end
 
   # GET /villages/new
