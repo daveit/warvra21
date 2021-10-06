@@ -2,12 +2,15 @@ class ResidentsController < ApplicationController
   before_action :set_resident, only: [:show, :edit, :update, :destroy]
 
   # GET /residents
-  # GET /residents.json
   def index
     #@residents = Resident.all.order("surname ASC")
     @residents = Resident.search(params[:search]).order("surname ASC")
+    if @residents.class == Array
+      @residents = Kaminari.paginate_array(@residents).page(params[:page]).per(30).order("surname ASC")
+    else
+      @residents = @residents.page(params[:page]).per(35).order("surname ASC")  
+    end
   end
-
   # GET /residents/1
   # GET /residents/1.json
   def show
