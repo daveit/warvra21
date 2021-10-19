@@ -21,7 +21,11 @@ Rails.application.routes.draw do
   resources :associate_payments
   
   resources :residents do
-    collection { post :import }
+    #collection { post :import }
+    collection do
+      get :notcancelled
+      get :iscancelled
+    end  
   end
 
   resources :associates do
@@ -59,6 +63,7 @@ Rails.application.routes.draw do
   end
 
   get '/villages/res/:id', to: 'villages#show2', as: 'show2'
+  # get 'residents/index2', to: 'residents#index2', as: 'residents_path2'
 
   resources :village_categories
   resources :statuses

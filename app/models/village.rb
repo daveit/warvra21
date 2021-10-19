@@ -20,6 +20,7 @@ class Village < ActiveRecord::Base
   scope :notfinancial, -> { where(status_id: 2) }
   scope :prospect, -> { where(status_id: 3)}
   scope :cancelled, -> { where(status_id: 4)}
+  scope :allvillages, -> {where(status_id: 1) }
 
   def self.search(search)
     if search

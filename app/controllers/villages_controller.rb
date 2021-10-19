@@ -5,7 +5,9 @@ class VillagesController < ApplicationController
   # GET /villages.json
 
   def index
-    @villages = Village.search(params[:search]).order("name ASC")
+    # @villages = Village.search(params[:search]).order("name ASC")
+    @villages = Village.financial
+    render action: :index
   end
 
 =begin
@@ -36,6 +38,11 @@ class VillagesController < ApplicationController
 
   def cancelled
     @villages = Village.cancelled
+    render action: :index
+  end
+
+  def allvillages
+    @villages = Village.allvillages
     render action: :index
   end
 

@@ -3,14 +3,31 @@ class ResidentsController < ApplicationController
 
   # GET /residents
   def index
-    #@residents = Resident.all.order("surname ASC")
-    @residents = Resident.search(params[:search]).order("surname ASC")
-    if @residents.class == Array
-      @residents = Kaminari.paginate_array(@residents).page(params[:page]).per(30).order("surname ASC")
-    else
-      @residents = @residents.page(params[:page]).per(35).order("surname ASC")  
-    end
+    #@residents = Resident.notcancelled.search(params[:search]).order("surname ASC")
+    @residents = Resident.notcancelled.order("surname ASC").search(params[:search])
+    render action: :index
+    #@residents = Resident.notcancelled.search(params[:search]).order("surname ASC").page(params[:page]).per(5)
+    #@residents = Resident.notcancelled.search(params[:search]).order("surname ASC")
+    #@residents = Resident.notcancelled.page(params[:page]).per(5).search(params[:search]).order("surname ASC")
+    #@residents = Resident.search(params[:search]).order("surname ASC")
+    #if @residents.class == Array
+    #  @residents = Kaminari.paginate_array(@residents).page(params[:page]).per(30).order("surname ASC")
+    #else
+    #  @residents = @residents.page(params[:page]).per(35).order("surname ASC")
+#      @products = Product.order("name").page(params[:page]).per(5)
+    #end
   end
+
+  def iscancelled
+    @residents = Resident.iscancelled.order("surname ASC").search(params[:search])
+    render action: :index
+  end
+
+#  def arecancelled
+#    @residents = Resident.arecancelled.page(params[:page]).per(5).search(params[:search]).order("surname ASC")
+#    render action: :index
+#  end
+
   # GET /residents/1
   # GET /residents/1.json
   def show
