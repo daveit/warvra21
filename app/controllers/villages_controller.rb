@@ -22,22 +22,22 @@ class VillagesController < ApplicationController
 =end
 
   def financial
-    @villages = Village.financial.order("name ASC")
+    @villages = Village.financial.order("name ASC").search(params[:search])
     render action: :index
   end
 
   def notfinancial
-    @villages = Village.notfinancial.order("name ASC")
+    @villages = Village.notfinancial.order("name ASC").search(params[:search])
     render action: :index
   end
 
   def prospect
-    @villages = Village.prospect.order("name ASC")
+    @villages = Village.prospect.order("name ASC").search(params[:search])
     render action: :index
   end
 
   def cancelled
-    @villages = Village.cancelled.order("name ASC")
+    @villages = Village.cancelled.order("name ASC").search(params[:search])
     render action: :index
   end
 
