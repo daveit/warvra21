@@ -16,6 +16,7 @@
             <th>Suburb</th>
             <th>Received</th>
             <th>Accepted</th>
+            <th>Ceased?</th>
           </tr>
           </thead>
 
@@ -43,6 +44,7 @@
                 <td>
                   <%= residents.dateaccepted %>
                 </td>
+                <td><%= residents.dateceased %></td>
               </tr>
           <% end %>
           </tbody>
