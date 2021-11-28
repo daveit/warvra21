@@ -2,6 +2,7 @@
 <hr class="style-seven">
 <% if user_signed_in? %>
     <p><%= link_to 'Users:', users_path %> <%= User.count %> registered</p>
+    <p># Individuals: <%= Individual.count %></p>
     <h3>Notices:</h3>
     <hr class="style-one">
     <% @notices.each do |notice| %>

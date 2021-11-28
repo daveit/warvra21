@@ -34,6 +34,7 @@
             <th>E-Mail</th>
             <th>Fin-To</th>
             <th># Units</th>
+            <th># Members</th>
 
             <th colspan="4"></th>
           </tr>
@@ -49,6 +50,7 @@
                 <td><%= village.email %></td>
                 <td><%= village.financial_to %></td>
                 <td><%= village.numres %></td>
+                <td><%= village.residents.count %></td>
                 <% if current_user.try(:vip?) or current_user.try(:admin?) %>
                     <td><%= link_to 'Edit', edit_village_path(village), :class => "btn btn-xs btn-success" %></td>
                     <% if current_user.try(:admin?) %>

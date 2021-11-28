@@ -1,5 +1,12 @@
 # warvra 21
 
+ver 2.08.3:
+- Improved validation when saving a new Village Member
+- Added back to list and add buttons to Village Residents Show view
+
+ver 2.08.2:
+add dateceased column to 2 x views for Residents
+
 ver 2.08.1:
 Fixed villages in wrong order
 

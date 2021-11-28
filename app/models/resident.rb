@@ -3,17 +3,23 @@ class Resident < ActiveRecord::Base
 
   validates :surname, presence: true
   validates :first, presence: true
+  validates :village_id, :presence => true
   
   scope :notcancelled, -> {
     where(dateceased: nil)
+  }
+  scope :notcancelledemail, -> {
+    where('email is not null')
   }
 
   scope :iscancelled, -> {
     where('dateceased is not null')
   }
 
+  scope :villagecount, -> { where('village_id = ?', village_id) }
+  
   #scope :billed, where('invoice_id is not null')
- # scope :arecancelled, -> { where(dateceased: nil) }
+  #scope :arecancelled, -> { where(dateceased: nil) }
   #scope :arecancelled, -> { where("dateceased > 0") }
   #scope :notbilled, where(:invoice_id => nil)
   #scope :billed, where(:invoice_id != nil)

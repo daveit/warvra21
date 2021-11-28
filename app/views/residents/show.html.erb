@@ -32,7 +32,7 @@
     </p> 
     <% end %>
     <%= link_to 'Edit', edit_resident_path(@resident), :class => "btn btn-small btn-danger" %>
-    <% link_to 'Back', residents_path, :class => "btn btn-small btn-info" %>
-
+    <%= link_to 'Back to list of members', residents_path, :class => "btn btn-small btn-info" %>
+    <%= link_to 'Add New Member', new_resident_path, :class => "btn btn-small btn-primary" %>
     </div>
 </div>

@@ -5,6 +5,9 @@ class ResidentsController < ApplicationController
   def index
     #@residents = Resident.notcancelled.search(params[:search]).order("surname ASC")
     @residents = Resident.notcancelled.order("surname ASC").search(params[:search])
+    @rescount = Resident.notcancelled.count
+    @rescountemail = Resident.notcancelled.notcancelledemail.count
+    @rescountnoemail = (@rescount-@rescountemail)
     render action: :index
     #@residents = Resident.notcancelled.search(params[:search]).order("surname ASC").page(params[:page]).per(5)
     #@residents = Resident.notcancelled.search(params[:search]).order("surname ASC")
@@ -18,10 +21,10 @@ class ResidentsController < ApplicationController
     #end
   end
 
-  def iscancelled
-    @residents = Resident.iscancelled.order("surname ASC").search(params[:search])
-    render action: :index
-  end
+#  def iscancelled
+#    @residents = Resident.iscancelled.order("surname ASC").search(params[:search])
+#    render action: :index
+#  end
 
 #  def arecancelled
 #    @residents = Resident.arecancelled.page(params[:page]).per(5).search(params[:search]).order("surname ASC")
