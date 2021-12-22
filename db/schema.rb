@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20210830053549) do
+ActiveRecord::Schema.define(version: 20211214235052) do
 
   create_table "acc_accounts", force: :cascade do |t|
     t.string   "name"
@@ -123,6 +123,7 @@ ActiveRecord::Schema.define(version: 20210830053549) do
     t.string   "payphonemobile"
     t.string   "payphonework"
     t.string   "payphonehome"
+    t.text     "notes"
   end
 
   create_table "contacts", force: :cascade do |t|

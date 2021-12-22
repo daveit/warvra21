@@ -21,10 +21,10 @@ class ResidentsController < ApplicationController
     #end
   end
 
-#  def iscancelled
-#    @residents = Resident.iscancelled.order("surname ASC").search(params[:search])
-#    render action: :index
-#  end
+def iscancelled
+    @residents = Resident.iscancelled.order("surname ASC").search(params[:search])
+    render action: :index
+end
 
 #  def arecancelled
 #    @residents = Resident.arecancelled.page(params[:page]).per(5).search(params[:search]).order("surname ASC")

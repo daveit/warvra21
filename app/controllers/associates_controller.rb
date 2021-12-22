@@ -16,7 +16,8 @@ class AssociatesController < ApplicationController
     @associate = Associate.new(associate_params)
 
     @associate.save
-    redirect_to @associate
+    # redirect_to @associate
+    render :edit 
   end
 
   def update
@@ -49,7 +50,7 @@ class AssociatesController < ApplicationController
     @associate = Associate.find(params[:id])
   end
   def associate_params
-    params.require(:associate).permit(:surname, :first, :title, :email, :payer_name, :payer_email, :payer_title, :management, :financialto, :phonemobile, :phonework, :phonehome, :payphonemobile, :payphonework, :payphonehome )
+    params.require(:associate).permit(:surname, :first, :title, :email, :payer_name, :payer_email, :payer_title, :management, :financialto, :phonemobile, :phonework, :phonehome, :payphonemobile, :payphonework, :payphonehome, :notes )
   end
 
 end
