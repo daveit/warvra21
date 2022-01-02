@@ -16,9 +16,9 @@
       <%= form_tag individuals_path, :method => 'get' do %>
         <p>
           <%= text_field_tag :search, params[:search] %>
-          <%= submit_tag "First or Last name Search", :name => nil %>
+          <%= submit_tag "Search", :name => nil %>
           <%= link_to 'x', individuals_path, :class => "btn btn-xs btn-success" %>
-          Note: single words only!  
+          Note: lower case and single words only!  
         </p>
       <% end %>
 

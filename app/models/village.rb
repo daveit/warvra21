@@ -24,7 +24,7 @@ class Village < ActiveRecord::Base
 
   def self.search(search)
     if search
-      where('lower(name) LIKE ?', "%#{search}%")
+      where('lower(name) LIKE ? OR lower(email) LIKE ?', "%#{search}%", "%#{search}%")
     else
       all
     end

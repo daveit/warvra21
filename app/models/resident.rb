@@ -30,7 +30,8 @@ class Resident < ActiveRecord::Base
 
   def self.search(search)
     if search
-      where('lower(surname) LIKE ?', "%#{search}%")
+      where('lower(surname) LIKE ? OR lower(first) LIKE ? OR lower(email) LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%")
+      #where('lower(last) LIKE ? OR lower(first) LIKE ?', "%#{search}%", "%#{search}%")
     else
       all
     end

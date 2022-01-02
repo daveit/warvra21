@@ -21,7 +21,7 @@ class Individual < ActiveRecord::Base
 
   def self.search(search)
     if search
-      where('lower(last) LIKE ? OR lower(first) LIKE ?', "%#{search}%", "%#{search}%")
+      where('lower(last) LIKE ? OR lower(first) LIKE ? OR lower(email) LIKE ?', "%#{search}%", "%#{search}%", "%#{search}%")
     else
       all
     end
