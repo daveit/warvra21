@@ -1,8 +1,11 @@
 <h3>Welcome to the WARVRA Membership program...</h3>
 <hr class="style-seven">
 <% if user_signed_in? %>
-    <p><%= link_to 'Users:', users_path %> <%= User.count %> registered</p>
-    <p># Individuals: <%= Individual.count %></p>
+    <h4># Individuals: <%= Individual.count %> | 
+    # Villages: <%= Village.count %> | 
+    # Village Members: <%= Resident.count %> | 
+    # Associates: <%= Associate.count %></h4>
+    <h4><%= link_to 'Users:', users_path %> <%= User.count %> registered</h4>
     <h3>Notices:</h3>
     <hr class="style-one">
     <% @notices.each do |notice| %>
