@@ -1,4 +1,13 @@
 # warvra 21
+
+ver 2.10
+- Associates Ad-Hoc Notes turned on - migration on Heroku is done!
+- Changed save behaviour for Associates to save and stay in edit mode
+- TODO - note field for Villages
+- TODO - note field for Individuals
+- TODO - Migrate for above two
+- TODO - Edit views for above 2 x new notes 
+
 ver 2.09
 - email & first-name added to search for Village Memmbers
 - Import removed from Associates List.

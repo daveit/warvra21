@@ -17,14 +17,15 @@ class AssociatesController < ApplicationController
 
     @associate.save
     # redirect_to @associate
-    render :edit 
+      render :edit 
   end
 
   def update
     respond_to do |format|
       if @associate.update(associate_params)
-        format.html { redirect_to @associate, notice: 'Associate was successfully updated.' }
-        format.json { render :show, status: :ok, location: @associate }
+        format.html { render :edit }
+        #format.html { redirect_to @associate, notice: 'Associate was successfully updated.' }
+        #format.json { render :show, status: :ok, location: @associate }
       else
         format.html { render :edit }
         format.json { render json: @associate.errors, status: :unprocessable_entity }
