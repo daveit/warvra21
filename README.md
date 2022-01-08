@@ -2,7 +2,7 @@
 ver 2.09
 - email & first-name added to search for Village Memmbers
 - Import removed from Associates List.
-- ? 
+- Updated release date 
 
 ver 2.08.4
 - Fixed an issue where the ceased button was broken in Village Members list
