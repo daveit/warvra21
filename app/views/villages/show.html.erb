@@ -105,7 +105,7 @@
           </thead>
 
           <tbody>
-          <% @village.vreceipts.each do |rec| %>
+          <% @village.vreceipts.order(rdate: :desc).each do |rec| %>
               <tr>
                 <td>
                   <%= link_to rec.rdate, rec  %>
