@@ -18,7 +18,7 @@ class Village < ActiveRecord::Base
 
   scope :financial, -> { where(status_id: 1) }
   scope :notfinancial, -> { where(status_id: 2) }
-  scope :prospect, -> { where(status_id: 3)}
+  scope :prospect, -> { where(status_id: 5)}
   scope :cancelled, -> { where(status_id: 4)}
   scope :allvillages, -> {where(status_id: 1) }
 
