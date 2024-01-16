@@ -45,7 +45,7 @@
 
         <div class="row">
           <div class="form-inputs col-xs-6">
-            <%= f.association :ivillage, label: "Village?" %>
+            <%= f.association :ivillage, collection: Ivillage.order(:name), :label => "Village selection", prompt: "Choose a Village?" %>
           </div>
         </div>
 
