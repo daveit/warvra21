@@ -26,7 +26,7 @@ class VreceiptsController < ApplicationController
   def create
     @village = Village.find(params[:village_id])
     @vreceipt = @village.vreceipts.create(vreceipt_params)
-    redirect_to village_path(@village)
+    redirect_to villages_path
   end
 
 =begin
