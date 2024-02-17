@@ -4,7 +4,7 @@
     <p id="notice"><%= notice %></p>
 
     <% if current_user.try(:vip?) or current_user.try(:admin?) %>
-        <%= link_to 'New Associate', new_associate_path, :class => "btn btn-sm btn-success" %>
+        <%= link_to 'New Stakeholder', new_associate_path, :class => "btn btn-sm btn-success" %>
     <% end %>
 
     <h2>Associates</h2>
@@ -36,7 +36,7 @@
                 <% if current_user.try(:vip?) or current_user.try(:admin?) %>
                     <td><%= link_to 'Edit', edit_associate_path(associate), :class => "btn btn-xs btn-success" %></td>
                     <% if current_user.try(:admin?) %>
-                      <td><%= link_to 'x', associate, method: :delete, data: {confirm: 'Permanently Remove this Associate?'}, :class => "btn btn-xs btn-danger" %></td>
+                      <td><%= link_to 'x', associate, method: :delete, data: {confirm: 'Permanently Remove this Stakeholder?'}, :class => "btn btn-xs btn-danger" %></td>
                     <% end %>
                 <% end %>
               </tr>
